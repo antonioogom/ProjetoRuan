@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil - Chateau du Pet</title>
+    <link rel="icon" type="image/png" href="../img/logo_pequena.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/home.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg shadow-sm">
+        <div class="container">
+            <a class="btn text-white d-flex align-items-center" href="../home.html"><i class="bi bi-arrow-left me-2"></i>Voltar</a>
+            <a class="navbar-brand fw-bold text-white mx-auto" href="../home.html">Minha Conta</a>
+            <button id="logout-button" class="btn btn-sm btn-outline-light"><i class="bi bi-box-arrow-right"></i> Sair</button>
+        </div>
+    </nav>
+
+    <main class="container my-5" id="perfil-page-container">
+        <ul class="nav nav-tabs mb-4">
+            <li class="nav-item"><a class="nav-link active" href="perfil.html">Meu Perfil</a></li>
+            <li class="nav-item"><a class="nav-link" href="meus_pets.html">Meus Pets</a></li>
+            <li class="nav-item"><a class="nav-link" href="meus_agendamentos.html">Agendamentos</a></li>
+            <li class="nav-item"><a class="nav-link" href="../ecommerce/meus_pedidos.html">Pedidos</a></li>
+            <li class="nav-item"><a class="nav-link" href="meus_pontos.html">Meus Pontos</a></li>
+        </ul>
+
+        <div class="card p-4">
+            <h2>Meu Perfil</h2>
+            <p>Atualize suas informações pessoais e de contato.</p>
+            <form>
+                <div class="mb-3">
+                    <label for="nome" class="form-label">Nome Completo</label>
+                    <input type="text" class="form-control" id="nome" required>
+                </div>
+                <div class="mb-3">
+                    <label for="telefone" class="form-label">Telefone de Contato</label>
+                    <input type="tel" class="form-control" id="telefone">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email (Não pode ser alterado)</label>
+                    <input type="email" class="form-control" id="email" disabled readonly>
+                </div>
+                <hr>
+                <button type="button" class="btn btn-secondary">Alterar Senha</button>
+                <button type="button" id="save-profile-button" class="btn btn-custom">Salvar Alterações</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="main-footer pt-5 pb-4"><div class="container text-center"><p>© 2025 CHATUAL DU PET</p></div></footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/supabaseClient.js" type="module"></script>
+    <script src="../js/perfil.js" type="module"></script>
+</body>
+</html>

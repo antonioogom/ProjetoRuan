@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel para Pets - Chateau du Pet</title>
+    <link rel="icon" type="image/png" href="../img/logo_pequena.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        /* ==========================================================================
+           CSS COMBINADO (Home.css + Servicos.css)
+           ========================================================================== */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        :root { 
+            --chateau-purple: #89006A; 
+            --chateau-light-purple: #f0e6f0; 
+        }
+        /* Fundo cinza claro */
+        body { background-color: #f8f9fa; color: #333; font-family: Arial, sans-serif; }
+        button, input, textarea, select { font-family: inherit; }
+        .main-purple-text { color: var(--chateau-purple) !important; }
+
+        /* --- Navbar --- */
+        .navbar { background-color: var(--chateau-purple) !important; padding: 0.5rem 1rem; }
+        .navbar .nav-link, .navbar .btn, .navbar .navbar-brand { color: #fff !important; }
+        .navbar-brand { font-weight: bold !important; }
+        
+        /* --- Botão Customizado --- */
+        .btn-custom { background-color: var(--chateau-purple); color: #fff; border-radius: 20px; padding: 10px 25px; border: 1px solid var(--chateau-purple); transition: 0.3s; display: inline-block; text-decoration: none; text-align: center; font-weight: bold; }
+        .btn-custom:hover { background-color: #6a0052; border-color: #6a0052; color: #fff; }
+
+        /* --- Footer (CORRIGIDO E COMPLETO) --- */
+        .main-footer { background-color: #f8f8f8; border-top: 1px solid #ddd; color: #333; font-size: 0.95rem; }
+        .main-footer h5 { font-size: 1.1rem; font-weight: bold; color: var(--chateau-purple); margin-bottom: 1rem; }
+        .main-footer a { color: #6c757d; text-decoration: none; line-height: 2; transition: color 0.2s; }
+        .main-footer a:hover { color: var(--chateau-purple); text-decoration: underline; }
+        .footer-cta { background-color: var(--chateau-purple); border-radius: 8px; }
+        .footer-hr { border-color: #eee; }
+
+        /* ==========================================================================
+           CSS Específico da Página (Hotel)
+           ========================================================================== */
+        .hero-section .text-content { padding-top: 2rem; padding-bottom: 2rem; }
+        .hero-section img { max-height: 450px; object-fit: cover; width: 100%; }
+        .cta-section {
+            background-color: var(--chateau-light-purple, #f0e6f0);
+            padding: 3rem 1rem;
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--chateau-purple, #89006A);
+        }
+        .section-title {
+            color: var(--chateau-purple, #89006A);
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg shadow-sm">
+        <div class="container">
+             <a class="btn text-white d-flex align-items-center" href="../home.html" style="text-decoration: none;">
+                 <i class="bi bi-arrow-left me-2"></i>
+                 <span class="d-none d-sm-inline">Voltar</span>
+             </a>
+             <a class="navbar-brand fw-bold text-white d-flex align-items-center mx-auto" href="../home.html">
+                 <span class="d-none d-md-inline">HOTEL PET</span>
+                 <span class="d-md-none">Hotel</span> </a>
+             <div style="width: 80px;"></div> </div>
+    </nav>
+
+    <main class="container my-5">
+        <div class="row align-items-center hero-section">
+            <div class="col-lg-6">
+                <div class="text-content">
+                    <h1 class="main-purple-text fw-bold">Hotel: o Segundo Lar do seu Pet</h1>
+                    <p class="lead">Viaje tranquilo sabendo que seu pet está em um ambiente seguro, confortável e com companhia 24h por dia.</p>
+                    <p>Nossas instalações são projetadas para o bem-estar dos animais, com áreas de recreação, espaços individuais para descanso e monitoramento constante por nossa equipe apaixonada por pets.</p>
+                    <ul class="list-unstyled mt-3">
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Ambiente climatizado</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Recreação supervisionada</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Alimentação conforme orientação do tutor</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Monitoramento 24h</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6 mt-4 mt-lg-0 text-center">
+                 <img src="../img/hotel1.webp" class="img-fluid rounded-3 shadow" alt="Cães descansando no Hotel Chateau du Pet">
+            </div>
+        </div>
+
+        <section class="cta-section">
+            <h2 class="section-title">Planejando uma viagem?</h2>
+            <p>Garanta a vaga do seu melhor amigo em nosso hotel!</p>
+            <a href="agendamento-fluxo.html" class="btn btn-lg btn-custom mt-3">
+                <i class="bi bi-calendar-plus me-2"></i>Fazer Reserva
+            </a>
+        </section>
+        
+        <div class="container my-5">
+            <h2 class="text-center main-purple-text fw-bold mb-4">Nossas Acomodações</h2>
+            <div class="row g-3">
+                <div class="col-lg-3 col-md-4 col-6"><img src="../img/hotel2.webp" alt="Acomodação hotel pet" class="img-fluid rounded-3 shadow" style="width:100%; height: 200px; object-fit: cover;"></div>
+                <div class="col-lg-3 col-md-4 col-6"><img src="../img/hotel3.webp" alt="Acomodação hotel pet" class="img-fluid rounded-3 shadow" style="width:100%; height: 200px; object-fit: cover;"></div>
+                <div class="col-lg-3 col-md-4 col-6"><img src="../img/hotel4.webp" alt="Acomodação hotel pet" class="img-fluid rounded-3 shadow" style="width:100%; height: 200px; object-fit: cover;"></div>
+                <div class="col-lg-3 col-md-4 col-6"><img src="../img/hotel5.webp" alt="Acomodação hotel pet" class="img-fluid rounded-3 shadow" style="width:100%; height: 200px; object-fit: cover;"></div>
+                <div class="col-lg-3 col-md-4 col-6"><img src="../img/hotel6.webp" alt="Acomodação hotel pet" class="img-fluid rounded-3 shadow" style="width:100%; height: 200px; object-fit: cover;"></div>
+                <div class="col-lg-3 col-md-4 col-6"><img src="../img/hotel7.webp" alt="Acomodação hotel pet" class="img-fluid rounded-3 shadow" style="width:100%; height: 200px; object-fit: cover;"></div>
+                <div class="col-lg-3 col-md-4 col-6"><img src="../img/day_care3.webp" alt="Área de recreação" class="img-fluid rounded-3 shadow" style="width:100%; height: 200px; object-fit: cover;"></div>
+                <div class="col-lg-3 col-md-4 col-6"><img src="../img/day_care4.webp" alt="Área de recreação" class="img-fluid rounded-3 shadow" style="width:100%; height: 200px; object-fit: cover;"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer pt-5 pb-4 mt-5">
+        <div class="container">
+            <div class="row footer-links mb-4">
+                <div class="col-lg-3 col-md-6 mb-4"><div class="footer-cta p-4"><h4 class="text-white">Como podemos ajudar?</h4><p class="text-white-50">Conheça mais sobre nós.</p><a href="../paginas_institucionais/contatos.html" class="btn btn-light btn-sm fw-bold">Fale Conosco</a></div></div>
+                <div class="col-lg-3 col-md-6 mb-4"><h5>Atendimento</h5><ul class="list-unstyled"><li><a href="../paginas_institucionais/contatos.html">Central de Ajuda/FAQ</a></li><li><a href="#">Trocas e Devoluções</a></li></ul></div>
+                <div class="col-lg-3 col-md-6 mb-4"><h5>Nossos Serviços</h5><ul class="list-unstyled"><li><a href="../servicos/veterinaria.html">Veterinária 🐾</a></li><li><a href="../servicos/servicos.html">Estética</a></li><li><a href="../servicos/hotel.html">Hotel Pet</a></li><li><a href="../servicos/day_care.html">Day Care</a></li></ul></div>
+                <div class="col-lg-3 col-md-6 mb-4"><h5>Informações Legais</h5><ul class="list-unstyled"><li><a href="#">Política de Privacidade</a></li><li><a href="../paginas_institucionais/lojas.html">Nossas Lojas</a></li></ul></div>
+            </div>
+            <hr class="footer-hr">
+            <div class="text-center mt-3 small text-muted">
+                <p class="mb-0">CHATUAL DU PET | CNPJ: 10.864.846/0001-23</p>
+                <p class="mb-0">© Copyright 2025 CHATUAL DU PET - Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

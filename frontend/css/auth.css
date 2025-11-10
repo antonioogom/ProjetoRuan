@@ -1,0 +1,219 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.auth-header {
+    background-color: #89006A;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    font-family: 'Ribeye', cursive;
+    font-size: 1.8rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.form-box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.form-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    position: relative; /* Para posicionar o botão de voltar */
+}
+
+.form-header .back-button {
+    color: #89006A;
+    font-size: 1.5rem;
+    margin-right: 15px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.form-header h1 {
+    font-size: 1.6rem;
+    color: #333;
+    margin: 0;
+    flex-grow: 1; /* Para centralizar o h1 */
+    text-align: center; /* Centraliza o texto */
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    padding-right: 40px; /* Espaço para o ícone de olho */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #89006A;
+    box-shadow: 0 0 0 0.2rem rgba(137, 0, 106, 0.25);
+}
+
+.eye-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 0.9rem;
+}
+
+.form-options label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #555;
+    cursor: pointer;
+}
+
+.form-options input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.form-options a {
+    color: #89006A;
+    text-decoration: none;
+}
+
+.form-options a:hover {
+    text-decoration: underline;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px; /* Espaço entre os botões */
+    margin-bottom: 30px;
+}
+
+.btn {
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none; /* Garante que o <a> não tenha sublinhado */
+    flex: 1; /* Faz os botões dividirem o espaço igualmente */
+    white-space: nowrap; /* Evita que o texto quebre em várias linhas */
+}
+
+.btn-solid {
+    background-color: #89006A;
+    color: white;
+    border: 2px solid #89006A;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-solid:hover {
+    background-color: #6a0050;
+    border-color: #6a0050;
+    color: white; /* Garante que a cor do texto continue branca no hover */
+}
+
+.btn-outline {
+    background-color: white;
+    color: #89006A;
+    border: 2px solid #89006A;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline:hover {
+    background-color: #89006A;
+    color: white;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 30px 0;
+    color: #888;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #eee;
+}
+
+.divider:not(:empty)::before {
+    margin-right: .25em;
+}
+
+.divider:not(:empty)::after {
+    margin-left: .25em;
+}
+
+.social-login {
+    display: flex;
+    justify-content: center; /* Centraliza as imagens */
+    gap: 20px; /* Espaço entre as imagens */
+}
+
+.social-login a img {
+    width: 40px; /* Tamanho ajustado para as imagens */
+    height: 40px;
+    object-fit: contain; /* Garante que a imagem se ajuste sem cortar */
+    transition: transform 0.2s ease;
+}
+
+.social-login a img:hover {
+    transform: scale(1.1); /* Efeito de zoom no hover */
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    .form-box {
+        padding: 20px;
+    }
+    .form-header h1 {
+        font-size: 1.4rem;
+    }
+    .form-buttons {
+        flex-direction: column; /* Botões empilhados em telas menores */
+        gap: 10px;
+    }
+    .btn {
+        width: 100%;
+    }
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redefinir Senha - Chateau du Pet</title>
+    
+    <link rel="shortcut icon" href="../img/Chateau.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Ribeye&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+    <header class="auth-header">Chateau du Pet</header>
+
+    <div class="form-container">
+        <div class="form-box">
+
+            <div id="reset-section-1" style="display: none;"> <div class="form-header">
+                    <a href="login.html" class="back-button"><i class="bi bi-arrow-left"></i></a>
+                    <h1>Esqueceu a senha?</h1>
+                </div>
+                <p style="text-align: center; margin-bottom: 25px;">Não se preocupe! Digite seu e-mail para receber o link de recuperação.</p>
+                <form id="sendCodeForm">
+                    <div class="input-group">
+                        <input type="email" id="email" placeholder="Digite seu e-mail" required>
+                    </div>
+                    <button type="submit" class="btn btn-solid">ENVIAR LINK</button>
+                </form>
+            </div>
+
+            <div id="reset-section-2" style="display: none;"> <div class="form-header">
+                       <a href="#" id="back-to-step1" class="back-button"><i class="bi bi-arrow-left"></i></a>
+                    <h1>Redefinir senha</h1>
+                </div>
+                <p style="text-align: center; margin-bottom: 25px;">Você clicou no link de recuperação. Agora, defina sua nova senha.</p>
+                
+                <form id="resetPasswordForm">
+                    <div class="input-group">
+                        <input type="password" id="new_password" placeholder="Nova senha" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="confirm_new_password" placeholder="Confirme a nova senha" required>
+                    </div>
+                    <button type="submit" class="btn btn-solid">SALVAR SENHA</button>
+                </form>
+            </div>
+
+        </div> 
+    </div>
+
+    <script src="../js/supabaseClient.js" type="module"></script>
+    <script src="../js/redefinir_senha.js" type="module"></script>
+</body>
+</html>

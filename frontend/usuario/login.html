@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Chateau du Pet</title>
+    
+    <link rel="shortcut icon" href="../img/Chateau.ico" type="image/x-icon">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Ribeye&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+    <header class="auth-header">Chateau du Pet</header>
+    <div class="form-container">
+        <div class="form-box">
+            <div class="form-header">
+                <a href="../home.html" class="back-button"><i class="bi bi-arrow-left"></i></a>
+                <h1>Acessar sua conta</h1>
+            </div>
+            
+            <form id="loginForm">
+                <div class="input-group">
+                    <input type="email" id="email" placeholder="Digite seu e-mail" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="senha" placeholder="Digite sua senha" required>
+                    <i class="bi bi-eye-fill eye-icon" id="togglePassword"></i>
+                </div>
+                
+                <div class="form-options">
+                    <label><input type="checkbox" id="remember"> Lembrar</label>
+                    <a href="redefinir_senha.html">Esqueci minha senha</a>
+                </div>
+                
+                <div class="form-buttons">
+                    <a href="criar_conta.html" class="btn btn-outline text-center">CADASTRAR</a>
+                    <button type="submit" class="btn btn-solid">ACESSAR</button>
+                </div>
+            </form>
+
+            <div class="divider"><span>Ou acesse com</span></div>
+
+            <div class="social-login">
+                <a href="#"><img src="../img/google.png" alt="Login com Google"></a>
+                <a href="#"><img src="../img/facebook.png" alt="Login com Facebook"></a>
+            </div>
+        </div> 
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <script src="../js/login.js?v=1000" type="module"></script>
+</body>
+</html>

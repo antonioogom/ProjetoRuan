@@ -1,0 +1,146 @@
+:root {
+    --chateau-purple: #89006A;
+    --chateau-light-purple: #f0e6f0;
+}
+
+.step {
+    display: none;
+    animation: fadeIn 0.5s;
+}
+.step.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.main-purple-bg { 
+    background-color: var(--chateau-purple) !important; 
+}
+.main-purple-text { 
+    color: var(--chateau-purple) !important; 
+}
+.spinner-border.main-purple-text {
+    color: var(--chateau-purple) !important;
+}
+
+/* --- Barra de Progresso --- */
+.progress-container { 
+    margin-bottom: 2rem; 
+}
+.progress {
+    height: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+.progress-bar {
+    background-color: var(--chateau-purple);
+    transition: width 0.4s ease;
+}
+
+/* --- Botões --- */
+.btn-custom {
+    background-color: var(--chateau-purple);
+    color: white;
+    border: 1px solid var(--chateau-purple);
+    font-weight: 500;
+}
+.btn-custom:hover {
+    background-color: #6a0052;
+    border-color: #6a0052;
+    color: white;
+}
+.btn-custom:disabled {
+    background-color: #ccc;
+    border-color: #ccc;
+    color: #666;
+}
+.btn-outline-secondary {
+    color: var(--chateau-purple);
+    border-color: var(--chateau-purple);
+    font-weight: 500;
+}
+.btn-outline-secondary:hover {
+    background-color: var(--chateau-light-purple);
+    color: var(--chateau-purple);
+    border-color: var(--chateau-purple);
+}
+
+/* --- Calendário --- */
+#calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+.calendar-day-name {
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 10px;
+    font-size: 0.9rem;
+    color: #6c757d;
+    border-bottom: 2px solid #eee;
+}
+.calendar-day {
+    padding: 12px 5px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+.calendar-day.disabled {
+    background-color: #f8f9fa;
+    color: #ccc;
+    cursor: not-allowed;
+    border-color: #eee;
+}
+.calendar-day.available:hover {
+    background-color: var(--chateau-light-purple);
+    transform: scale(1.05);
+}
+.calendar-day.selected {
+    background-color: var(--chateau-purple);
+    color: white;
+    font-weight: bold;
+    border-color: var(--chateau-purple);
+    transform: scale(1.05);
+}
+
+/* --- Slots de Horário --- */
+#time-slots-container {
+    min-height: 250px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+.time-slot {
+    cursor: pointer;
+    font-weight: 500;
+}
+.time-slot.list-group-item-action:hover {
+    background-color: var(--chateau-light-purple);
+    color: var(--chateau-purple);
+}
+.time-slot.selected {
+    background-color: var(--chateau-purple) !important;
+    color: white !important;
+    border-color: var(--chateau-purple);
+    font-weight: bold;
+}
+
+/* --- Campos de Pet --- */
+#new-pet-fields { 
+    display: none; 
+    animation: fadeIn 0.5s;
+}
+
+.form-select-lg {
+    font-size: 1.1rem;
+    padding: 0.75rem 1rem;
+}
+
+.form-label.fw-bold {
+    font-size: 1.1rem;
+    color: #333;
+}

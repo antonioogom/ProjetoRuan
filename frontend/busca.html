@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados da Busca - Chateau du Pet</title>
+    
+    <link rel="icon" type="image/png" href="img/logo_pequena.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <style>
+        /* ==========================================================================
+           CSS DO home.css (Para Navbar, Footer, Botões)
+           ========================================================================== */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        :root { 
+            --chateau-purple: #89006A; 
+            --chateau-light-purple: #f0e6f0; 
+        }
+        /* Fundo cinza claro */
+        body { background-color: #f8f9fa; color: #333; font-family: Arial, sans-serif; }
+        button, input, textarea, select { font-family: inherit; }
+        .main-purple-text { color: var(--chateau-purple) !important; }
+
+        /* --- Navbar --- */
+        .navbar { background-color: var(--chateau-purple) !important; padding: 0.5rem 1rem; }
+        .navbar .nav-link, .navbar .btn, .navbar .navbar-brand { color: #fff !important; }
+        .navbar-brand { font-weight: bold !important; }
+        
+        /* --- Barra de Busca (da página de busca) --- */
+        .search-form { position: relative; border: 1px solid var(--chateau-purple); border-radius: 20px; overflow: hidden; flex-grow: 1; }
+        .search-form input { border: none; padding: 0.375rem 1rem; flex: 1; background-color: white; }
+        .search-form input:focus { outline: none; box-shadow: 0 0 0 0.2rem rgba(137,0,106,0.25); }
+        .btn-search { background: transparent; border: none; position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; }
+
+        /* --- Botão Customizado --- */
+        .btn-custom { background-color: var(--chateau-purple); color: #fff; border-radius: 20px; padding: 10px 25px; border: 1px solid var(--chateau-purple); transition: 0.3s; display: inline-block; text-decoration: none; text-align: center; font-weight: bold; }
+        .btn-custom:hover { background-color: #6a0052; border-color: #6a0052; color: #fff; }
+        
+        /* --- Card de Produto --- */
+        .card { border: 1px solid var(--chateau-purple); transition: box-shadow 0.3s; padding: 1rem; display: flex; flex-direction: column; height: 100%; border-radius: 8px; background-color: #fff; color: #333; }
+        .card:hover { box-shadow: 0 4px 8px rgba(137,0,106,0.15); }
+        .card-img-top { max-height: 150px; object-fit: contain; margin: 0 auto 1rem auto; width: auto; }
+        .card-body { padding: 0; flex-grow: 1; display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .card-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; color: #333; min-height: 2.5rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; line-height: 1.25rem; }
+        .card-body p.card-text { font-size: 1rem; margin-bottom: 1rem; }
+        .card-body .btn-custom { margin-top: auto; }
+
+        /* --- Footer (COMPLETO) --- */
+        .main-footer { background-color: #f8f8f8; border-top: 1px solid #ddd; color: #333; font-size: 0.95rem; }
+        .main-footer h5 { font-size: 1.1rem; font-weight: bold; color: var(--chateau-purple); margin-bottom: 1rem; }
+        .main-footer a { color: #6c757d; text-decoration: none; line-height: 2; transition: color 0.2s; }
+        .main-footer a:hover { color: var(--chateau-purple); text-decoration: underline; }
+        .footer-cta { background-color: var(--chateau-purple); border-radius: 8px; }
+        .footer-hr { border-color: #eee; }
+
+        /* ==========================================================================
+           CSS Específico da Página (Busca / Filtros)
+           ========================================================================== */
+        #filters-container h5 {
+            font-weight: bold;
+            color: var(--chateau-purple);
+            margin-bottom: 1rem;
+        }
+        #filters-container .form-check {
+            margin-bottom: 0.5rem;
+        }
+        #filters-container .form-check-input:checked {
+            background-color: var(--chateau-purple);
+            border-color: var(--chateau-purple);
+        }
+        .price-filter { font-size: 0.9rem; }
+        .btn-outline-secondary:hover {
+            background-color: var(--chateau-purple);
+            color: white;
+        }
+        .form-control:focus {
+            border-color: var(--chateau-purple);
+            box-shadow: 0 0 0 0.25rem rgba(137, 0, 106, 0.25);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg shadow-sm">
+        <div class="container">
+            <a class="btn text-white d-flex align-items-center" href="javascript:history.back()"><i class="bi bi-arrow-left me-2"></i>Voltar</a>
+            
+            <form class="d-flex mx-3 w-100 search-form" action="busca.html" method="GET">
+                <input class="form-control" id="search-input-bar" type="search" name="q" placeholder="O que você procura?" aria-label="Pesquisar">
+                <button class="btn-search" type="submit"><i class="bi bi-search"></i></button>
+            </form>
+             <a class="nav-link text-white" href="carrinho.html" style="width: 80px; text-align: end;"><i class="bi bi-cart fs-5"></i></a>
+        </div>
+    </nav>
+    <main class="container my-5">
+        <div class="row">
+            <aside class="col-lg-3 d-none d-lg-block"> 
+                <h2 class="main-purple-text">Filtros</h2>
+                <div id="filters-container">
+                    
+                    <div class="mb-4">
+                        <h5>Categoria</h5>
+                        <div id="category-filters">
+                            <div class="spinner-border spinner-border-sm" role="status"></div>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="mb-4">
+                        <h5>Marca</h5>
+                        <div id="brand-filters">
+                            <div class="spinner-border spinner-border-sm" role="status"></div>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="mb-4">
+                        <h5>Peso / Tamanho</h5>
+                        <div id="tamanho-filters">
+                            <div class="spinner-border spinner-border-sm" role="status"></div>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="mb-4">
+                        <h5>Preço</h5>
+                        <div id="price-filter-container">
+                            <div class="input-group mb-2">
+                                <span class="input-group-text">R$</span>
+                                <input type="number" id="price-min" class="form-control form-control-sm price-filter" placeholder="Mín">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-text">R$</span>
+                                <input type="number" id="price-max" class="form-control form-control-sm price-filter" placeholder="Máx">
+                            </div>
+                            <button id="apply-price-filter" class="btn btn-sm btn-outline-secondary w-100 mt-2">Aplicar Filtro</button>
+                        </div>
+                    </div>
+
+                </div>
+            </aside>
+            
+            <section class="col-lg-9">
+                <h1 class="mb-2">Resultados para: "<span id="search-term-display" class="main-purple-text">...</span>"</h1>
+                <p id="results-count" class="text-muted lead"></p>
+                
+                <div id="search-results-container" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+                     <div class="col-12 text-center py-5"><div class="spinner-border text-primary" role="status"></div></div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <footer class="main-footer pt-5 pb-4 mt-5">
+        <div class="container">
+            <div class="row footer-links mb-4">
+                <div class="col-lg-3 col-md-6 mb-4"><div class="footer-cta p-4"><h4 class="text-white">Como podemos ajudar?</h4><p class="text-white-50">Conheça mais sobre nós.</p><a href="paginas_institucionais/contatos.html" class="btn btn-light btn-sm fw-bold">Fale Conosco</a></div></div>
+                <div class="col-lg-3 col-md-6 mb-4"><h5>Atendimento</h5><ul class="list-unstyled"><li><a href="paginas_institucionais/contatos.html">Central de Ajuda/FAQ</a></li><li><a href="#">Trocas e Devoluções</a></li></ul></div>
+                <div class="col-lg-3 col-md-6 mb-4"><h5>Nossos Serviços</h5><ul class="list-unstyled"><li><a href="servicos/veterinaria.html">Veterinária 🐾</a></li><li><a href="servicos/servicos.html">Estética</a></li><li><a href="servicos/hotel.html">Hotel Pet</a></li><li><a href="servicos/day_care.html">Day Care</a></li></ul></div>
+                <div class="col-lg-3 col-md-6 mb-4"><h5>Informações Legais</h5><ul class="list-unstyled"><li><a href="#">Política de Privacidade</a></li><li><a href="paginas_institucionais/lojas.html">Nossas Lojas</a></li></ul></div>
+            </div>
+            <hr class="footer-hr">
+            <div class="text-center mt-3 small text-muted">
+                <p class="mb-0">CHATUAL DU PET | CNPJ: 10.864.846/0001-23</p>
+                <p class="mb-0">© Copyright 2025 CHATUAL DU PET - Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <script src="js/supabaseClient.js" type="module"></script>
+    <script src="js/busca.js" type="module"></script>
+</body>
+</html>

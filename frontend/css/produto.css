@@ -1,0 +1,70 @@
+/* ==========================================================================
+   ARQUIVO CSS DO PRODUTO - Estilos exclusivos da página de produto
+   ========================================================================== */
+
+.product-title {
+    font-weight: 600;
+}
+
+.price-original {
+    text-decoration: line-through;
+    color: #6c757d;
+    font-size: 1rem;
+}
+
+/* * REMOVIDO: .quantity-selector 
+ * (Não precisamos mais dele)
+ */
+
+/* Estilos para o Accordion (Detalhes, Ficha Técnica) */
+.accordion-button:not(.collapsed) {
+    color: #fff;
+    background-color: var(--chateau-purple, #89006A);
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(137, 0, 106, 0.25);
+}
+
+/* ======================================================
+   NOVA SEÇÃO: DISPONIBILIDADE
+   ====================================================== */
+#store-availability-container {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
+}
+
+#store-availability-container h4 {
+    font-weight: 600;
+    color: var(--chateau-purple);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--chateau-purple);
+}
+
+.store-availability-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.store-availability-list li {
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.store-availability-list i.bi-check-circle-fill {
+    color: #198754; /* Verde */
+    font-size: 1.4rem;
+    margin-right: 10px;
+}
+
+.store-availability-list i.bi-x-circle-fill {
+    color: #dc3545; /* Vermelho */
+    font-size: 1.4rem;
+    margin-right: 10px;
+}

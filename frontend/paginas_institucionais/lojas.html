@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossas Lojas - Chateau du Pet</title>
+    <link rel="icon" type="image/png" href="../img/logo_pequena.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <style>
+        /* ==========================================================================
+           CSS COMBINADO (Home.css + Paginas-Institucionais.css)
+           ========================================================================== */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        :root { 
+            --chateau-purple: #89006A; 
+            --chateau-light-purple: #f0e6f0; 
+        }
+        /* Fundo cinza claro */
+        body { background-color: #f8f9fa; color: #333; font-family: Arial, sans-serif; }
+        button, input, textarea, select { font-family: inherit; }
+        .main-purple-text { color: var(--chateau-purple) !important; }
+
+        /* --- Navbar --- */
+        .navbar { background-color: var(--chateau-purple) !important; padding: 0.5rem 1rem; }
+        .navbar .nav-link, .navbar .btn, .navbar .navbar-brand { color: #fff !important; }
+        .navbar-brand { font-weight: bold !important; }
+        
+        /* --- Botão Customizado --- */
+        .btn-custom { background-color: var(--chateau-purple); color: #fff; border-radius: 20px; padding: 10px 25px; border: 1px solid var(--chateau-purple); transition: 0.3s; display: inline-block; text-decoration: none; text-align: center; font-weight: bold; }
+        .btn-custom:hover { background-color: #6a0052; border-color: #6a0052; color: #fff; }
+        
+        /* --- Footer (COMPLETO) --- */
+        .main-footer { background-color: #f8f8f8; border-top: 1px solid #ddd; color: #333; font-size: 0.95rem; }
+        .main-footer h5 { font-size: 1.1rem; font-weight: bold; color: var(--chateau-purple); margin-bottom: 1rem; }
+        .main-footer a { color: #6c757d; text-decoration: none; line-height: 2; transition: color 0.2s; }
+        .main-footer a:hover { color: var(--chateau-purple); text-decoration: underline; }
+        .footer-cta { background-color: var(--chateau-purple); border-radius: 8px; }
+        .footer-hr { border-color: #eee; }
+
+        /* ==========================================================================
+           CSS Específico da Página (Nossas Lojas)
+           ========================================================================== */
+        .store-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        .store-info {
+            flex-grow: 1;
+        }
+        .store-map-link {
+            flex-shrink: 0;
+            text-align: center;
+        }
+        .store-card h3 {
+            color: var(--chateau-purple, #89006A);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        /* Estilo para o link do título */
+        .store-card h3 a {
+            color: inherit; /* Herda a cor roxa do h3 */
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .store-card h3 a:hover {
+            opacity: 0.8;
+        }
+        .store-card .hours li {
+            font-size: 0.95rem;
+        }
+        .store-map-link .btn-custom {
+            padding: 5px 15px; /* Deixa o botão menor */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg shadow-sm">
+        <div class="container">
+             <a class="btn text-white d-flex align-items-center" href="../home.html" style="text-decoration: none;">
+                 <i class="bi bi-arrow-left me-2"></i>
+                 <span class="d-none d-sm-inline">Voltar</span>
+             </a>
+             <a class="navbar-brand fw-bold text-white mx-auto" href="../home.html">
+                 <span class="d-none d-md-inline">NOSSAS UNIDADES</span>
+                 <span class="d-md-none">Lojas</span>
+             </a>
+             <div style="width: 80px;"></div>
+        </div>
+    </nav>
+    <main class="container my-5">
+        <div class="text-center mb-5">
+            <h1 class="main-purple-text fw-bold">Encontre a Chateau du Pet mais perto de você!</h1>
+            <p class="lead">Atualmente, atendemos nas unidades de Mooca, Tatuapé, Ipiranga e Santos.</p>
+        </div>
+
+        <div id="stores-list-container" class="d-flex flex-column">
+            
+            <div class="store-card" data-loja="mooca">
+                <div class="store-info">
+                    <h3 class="d-flex align-items-center">
+                        <a href="https://www.google.com/maps/search/?api=1&query=R.+do+Orat%C3%B3rio,+426+-+Mooca,+S%C3%A3o+Paulo+-+SP,+03116-000" target="_blank">
+                            <i class="bi bi-shop me-2"></i> Unidade Mooca (Matriz)
+                        </a>
+                    </h3>
+                    <p>R. do Oratório, 426 - Mooca, São Paulo - SP, 03116-000</p>
+                    <p class="mb-1"><strong>Telefone:</strong> (11) 99177-0311</p>
+                    <h5 class="mt-3">Horário de Funcionamento:</h5>
+                    <ul class="list-unstyled hours">
+                        <li><i class="bi bi-clock me-2"></i>Segunda a Sábado: 08:00 – 18:00</li>
+                        <li><i class="bi bi-x-circle-fill text-danger me-2"></i>Domingo: Fechado</li>
+                    </ul>
+                </div>
+                <div class="store-map-link">
+                    <img src="../img/loja2.webp" alt="Foto da Unidade Mooca" class="img-fluid rounded shadow-sm" style="max-width: 150px;">
+                    <a href="https://www.google.com/maps/search/?api=1&query=R.+do+Orat%C3%B3rio,+426+-+Mooca,+S%C3%A3o+Paulo+-+SP,+03116-000" target="_blank" class="btn btn-sm btn-custom mt-2">Ver no Mapa</a>
+                </div>
+            </div>
+
+            <div class="store-card" data-loja="tatuape">
+                <div class="store-info">
+                    <h3 class="d-flex align-items-center">
+                        <a href="https://www.google.com/maps/search/?api=1&query=R.+Coelho+Lisboa,+739+-+Tatuap%C3%A9,+S%C3%A3o+Paulo+-+SP,+03323-040" target="_blank">
+                            <i class="bi bi-shop me-2"></i> Unidade Tatuapé
+                        </a>
+                    </h3>
+                    <p>R. Coelho Lisboa, 739 - Tatuapé, São Paulo - SP, 03323-040</p>
+                    <p class="mb-1"><strong>Telefone:</strong> (11) 94527-7207</p>
+                    <h5 class="mt-3">Horário de Funcionamento:</h5>
+                    <ul class="list-unstyled hours">
+                        <li><i class="bi bi-clock me-2"></i>Terça a Sábado: 09:00 – 17:00</li>
+                        <li><i class="bi bi-x-circle-fill text-danger me-2"></i>Domingo e Segunda: Fechado</li>
+                    </ul>
+                </div>
+                <div class="store-map-link">
+                    <img src="../img/loja2.webp" alt="Foto da Unidade Tatuapé" class="img-fluid rounded shadow-sm" style="max-width: 150px;">
+                    <a href="https://www.google.com/maps/search/?api=1&query=R.+Coelho+Lisboa,+739+-+Tatuap%C3%A9,+S%C3%A3o+Paulo+-+SP,+03323-040" target="_blank" class="btn btn-sm btn-custom mt-2">Ver no Mapa</a>
+                </div>
+            </div>
+            
+            <div class="store-card" data-loja="ipiranga">
+                <div class="store-info">
+                    <h3 class="d-flex align-items-center">
+                        <a href="https://www.google.com/maps/search/?api=1&query=R.+Srg.+Mor+Jo%C3%A3o+de+Souza,+39+-+Ipiranga,+S%C3%A3o+Paulo+-+SP,+04209-060" target="_blank">
+                            <i class="bi bi-shop me-2"></i> Unidade Ipiranga
+                        </a>
+                    </h3>
+                    <p>R. Srg. Mor João de Souza, 39 - Ipiranga, São Paulo - SP, 04209-060</p>
+                    <p class="mb-1"><strong>Telefone:</strong> (11) 2925-3884</p>
+                    <h5 class="mt-3">Horário de Funcionamento:</h5>
+                    <ul class="list-unstyled hours">
+                        <li><i class="bi bi-clock me-2"></i>Segunda a Sexta: 10:00 – 19:00</li>
+                        <li><i class="bi bi-clock me-2"></i>Sábado: 09:00 – 13:00</li>
+                        <li><i class="bi bi-x-circle-fill text-danger me-2"></i>Domingo: Fechado</li>
+                    </ul>
+                </div>
+                <div class="store-map-link">
+                    <img src="../img/loja2.webp" alt="Foto da Unidade Ipiranga" class="img-fluid rounded shadow-sm" style="max-width: 150px;">
+                    <a href="https://www.google.com/maps/search/?api=1&query=R.+Srg.+Mor+Jo%C3%A3o+de+Souza,+39+-+Ipiranga,+S%C3%A3o+Paulo+-+SP,+04209-060" target="_blank" class="btn btn-sm btn-custom mt-2">Ver no Mapa</a>
+                </div>
+            </div>
+
+            <div class="store-card" data-loja="santos">
+                <div class="store-info">
+                    <h3 class="d-flex align-items-center">
+                        <a href="httpsD://www.google.com/maps/search/?api=1&query=Av.+Pres.+Wilson,+180+-+Jos%C3%A9+Menino,+Santos+-+SP,+11065-201" target="_blank">
+                            <i class="bi bi-shop me-2"></i> Unidade Santos
+                        </a>
+                    </h3>
+                    <p>Av. Pres. Wilson, 180 - José Menino, Santos - SP, 11065-201</p>
+                    <p class="mb-1"><strong>Telefone:</strong> (13) 97424-2956</p>
+                    <h5 class="mt-3">Horário de Funcionamento:</h5>
+                    <ul class="list-unstyled hours">
+                        <li><i class="bi bi-clock me-2"></i>Todos os Dias: 07:00 – 21:00</li>
+                    </ul>
+                </div>
+                <div class="store-map-link">
+                    <img src="../img/loja2.webp" alt="Foto da Unidade Santos" class="img-fluid rounded shadow-sm" style="max-width: 150px;">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Av.+Pres.+Wilson,+180+-+Jos%C3%A9+Menino,+Santos+-+SP,+11065-201" target="_blank" class="btn btn-sm btn-custom mt-2">Ver no Mapa</a>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+    
+    <footer class="main-footer pt-5 pb-4 mt-5">
+        <div class="container">
+            <div class="row footer-links mb-4">
+                <div class="col-lg-3 col-md-6 mb-4"><div class="footer-cta p-4"><h4 class="text-white">Como podemos ajudar?</h4><p class="text-white-50">Conheça mais sobre nós.</p><a href="../paginas_institucionais/contatos.html" class="btn btn-light btn-sm fw-bold">Fale Conosco</a></div></div>
+                <div class="col-lg-3 col-md-6 mb-4"><h5>Atendimento</h5><ul class="list-unstyled"><li><a href="../paginas_institucionais/contatos.html">Central de Ajuda/FAQ</a></li><li><a href="#">Trocas e Devoluções</a></li></ul></div>
+                <div class="col-lg-3 col-md-6 mb-4"><h5>Nossos Serviços</h5><ul class="list-unstyled"><li><a href="../servicos/veterinaria.html">Veterinária 🐾</a></li><li><a href="../servicos/servicos.html">Estética</a></li><li><a href="../servicos/hotel.html">Hotel Pet</a></li><li><a href="../servicos/day_care.html">Day Care</a></li></ul></div>
+                <div class="col-lg-3 col-md-6 mb-4"><h5>Informações Legais</h5><ul class="list-unstyled"><li><a href="#">Política de Privacidade</a></li><li><a href="../paginas_institucionais/lojas.html">Nossas Lojas</a></li></ul></div>
+            </div>
+            <hr class="footer-hr">
+            <div class="text-center mt-3 small text-muted">
+                <p class="mb-0">CHATUAL DU PET | CNPJ: 10.864.846/0001-23</p>
+                <p class="mb-0">© Copyright 2025 CHATUAL DU PET - Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

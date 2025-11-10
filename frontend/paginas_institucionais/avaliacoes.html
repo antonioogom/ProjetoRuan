@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliações dos Clientes - Chateau du Pet</title>
+    <link rel="icon" type="image/png" href="../img/logo_pequena.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <style>
+        /* ==========================================================================
+           CSS DO home.css (Para Navbar, Footer, Botões)
+           ========================================================================== */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        :root { 
+            --chateau-purple: #89006A; 
+            --chateau-light-purple: #f0e6f0; 
+        }
+        /* Fundo cinza claro, como nas outras páginas */
+        body { background-color: #f8f9fa; color: #333; font-family: Arial, sans-serif; }
+        button, input, textarea, select { font-family: inherit; }
+        .main-purple-text { color: var(--chateau-purple) !important; }
+
+        /* --- Navbar --- */
+        .navbar { background-color: var(--chateau-purple) !important; padding: 0.5rem 1rem; }
+        .navbar .nav-link, .navbar .btn, .navbar .navbar-brand { color: #fff !important; }
+        .navbar-brand { font-weight: bold !important; }
+        
+        /* --- Botão Customizado --- */
+        .btn-custom { background-color: var(--chateau-purple); color: #fff; border-radius: 20px; padding: 8px 20px; border: 1px solid var(--chateau-purple); transition: 0.3s; display: inline-block; text-decoration: none; text-align: center; }
+        .btn-custom:hover { background-color: #6e0054; border-color: #6e0054; color: #fff; }
+
+        /* --- Footer --- */
+        .main-footer { background-color: #f8f8f8; border-top: 1px solid #ddd; color: #333; font-size: 0.95rem; }
+        .main-footer h5 { font-size: 1.1rem; font-weight: bold; color: var(--chateau-purple); margin-bottom: 1rem; }
+        .main-footer a { color: #6c757d; text-decoration: none; line-height: 2; transition: color 0.2s; }
+        .main-footer a:hover { color: var(--chateau-purple); text-decoration: underline; }
+        .footer-cta { background-color: var(--chateau-purple); border-radius: 8px; }
+        .footer-hr { border-color: #eee; }
+        
+        /* ==========================================================================
+           CSS Específico da Página
+           ========================================================================== */
+        
+        /* Card de Avaliação */
+        .review-card {
+            background-color: #fff;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            flex-grow: 1; 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .review-card p {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #495057;
+        }
+        .review-author {
+            display: flex;
+            align-items: center;
+            border-top: 1px solid #f8f9fa;
+            padding-top: 10px;
+        }
+        .review-author img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+        .review-author .name {
+            font-weight: bold;
+            color: #343a40;
+        }
+        .review-author .stars .bi-star-fill {
+            color: gold; /* Cor das estrelas */
+        }
+        
+        /* Galeria de Imagens */
+        .friend-gallery-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .friend-gallery-img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Seção "Deixe sua avaliação" (da sua outra sugestão) */
+        .call-to-action-review {
+            background-color: var(--chateau-light-purple);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 20px; /* Ajustei a margem */
+            margin-bottom: 50px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+        }
+        .call-to-action-review h2 {
+            color: var(--chateau-purple);
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg shadow-sm">
+        <div class="container">
+             <a class="btn text-white d-flex align-items-center" href="../home.html" style="text-decoration: none;">
+                 <i class="bi bi-arrow-left me-2"></i>
+                 <span class="d-none d-sm-inline">Voltar</span>
+             </a>
+             <a class="navbar-brand fw-bold text-white mx-auto" href="../home.html">
+                 <span class="d-none d-md-inline">AVALIAÇÕES DE CLIENTES</span>
+                 <span class="d-md-none">Avaliações</span>
+             </a>
+             <div style="width: 80px;"></div> </div>
+    </nav>
+
+    <main class="container my-5">
+        <h1 class="text-center mb-5 main-purple-text fw-bold">O que nossos clientes dizem</h1>
+        
+        <div class="row" id="reviews-container">
+            <div class="col-lg-6 d-flex flex-column">
+                <div class="review-card">
+                    <p>"O lugar é muito bonito e gostoso, vale a pena dar uma volta com o seu pet. São vários ambientes e várias opções de atendimento para o seu filho de 4 patas."</p>
+                    <div class="review-author">
+                        <img src="../img/animal1.webp" alt="Avatar Cliente Valéria">
+                        <div>
+                            <div class="name">Valéria Ferreira</div>
+                            <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <p>"Lugar fantástico, espaçoso, agradável atendimento 5 estrelas... Meu pet feliz e eu satisfeito."</p>
+                    <div class="review-author">
+                        <img src="../img/animal2.webp" alt="Avatar Cliente Paulo">
+                        <div>
+                            <div class="name">Paulo R. do C. Santos</div>
+                            <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 d-flex flex-column">
+                <div class="review-card">
+                    <p>"Excelente lugar para você que ama seu Pet. Vale a pena conhecer, tanto serviços quanto atendimentos são ótimos. Parabéns a todos envolvidos!"</p>
+                    <div class="review-author">
+                        <img src="../img/animal3.webp" alt="Avatar Cliente Daniels">
+                        <div>
+                            <div class="name">Daniels Souza</div>
+                            <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <p>"Melhor Pet que já fui. Nunca tinha conhecido nada com tanta estrutura. Superdiferenciado o espaço, profissionais supercapacitados."</p>
+                    <div class="review-author">
+                        <img src="../img/animal4.webp" alt="Avatar Cliente Beatriz">
+                        <div>
+                            <div class="name">Beatriz Macieira</div>
+                            <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-lg-6 d-flex flex-column">
+                <div class="review-card">
+                    <p>"Deixo meu Tobby no Day Care toda semana. Ele volta exausto e feliz! A equipe é incrível e manda fotos o dia todo. Confiança total."</p>
+                    <div class="review-author">
+                        <img src="../img/animal5.webp" alt="Avatar Cliente Carla">
+                        <div>
+                            <div class="name">Carla Mendes (e Tobby)</div>
+                            <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 d-flex flex-column">
+                <div class="review-card">
+                    <p>"Tive uma emergência com a minha gatinha e a Dra. foi super atenciosa. Cuidaram dela com muito carinho e profissionalismo. Recomendo a clínica!"</p>
+                    <div class="review-author">
+                        <img src="../img/animal6.webp" alt="Avatar Cliente Ricardo">
+                        <div>
+                            <div class="name">Ricardo Alves</div>
+                            <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 d-flex flex-column">
+                <div class="review-card">
+                    <p>"Minha cachorrinha sempre volta impecável do banho e tosa. Os profissionais são muito pacientes e o cheirinho dura muito tempo!"</p>
+                    <div class="review-author">
+                        <img src="../img/animal7.webp" alt="Avatar Cliente Juliana"> <div>
+                            <div class="name">Juliana Costa</div>
+                            <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 d-flex flex-column">
+                <div class="review-card">
+                    <p>"O hotel pet é a salvação nas minhas viagens. Meu gato fica super à vontade e eu recebo atualizações constantes. Paz de espírito!"</p>
+                    <div class="review-author">
+                        <img src="../img/animal8.webp" alt="Avatar Cliente Fernando"> <div>
+                            <div class="name">Fernando Guedes</div>
+                            <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3"> <div class="col-12">
+                <div class="call-to-action-review">
+                    <h2>Sua Opinião é Muito Importante!</h2>
+                    <p class="lead">Compartilhe sua experiência e ajude outros amantes de pets a conhecerem nossos serviços.</p>
+                    <a href="#" class="btn btn-custom btn-lg" onclick="alert('Obrigado! Em breve esta função estará disponível.')">Deixe sua Avaliação Aqui</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container my-5">
+            <h2 class="text-center main-purple-text fw-bold mb-4">Momentos Reais de Nossos Clientes</h2>
+            <div class="row g-3">
+                <div class="col-lg-3 col-md-4 col-6"><img src="../img/veteri_1.webp" alt="Atendimento veterinário" class="friend-gallery-img"></div>
+                <div class="col-lg-3 col-md-4 col-6"><img src="../img/day_care1.webp" alt="Pets no Day Care" class="friend-gallery-img"></div>
+                <div class="col-lg-3 col-md-4 col-6"><img src="../img/veteri_2.webp" alt="Cuidado na clínica" class="friend-gallery-img"></div>
+                <div class="col-lg-3 col-md-4 col-6"><img src="../img/day_care2.webp" alt="Pets brincando" class="friend-gallery-img"></div>
+                <div class="col-lg-3 col-md-4 col-6"><img src="../img/veteri_3.webp" alt="Consulta veterinária" class="friend-gallery-img"></div>
+                <div class="col-lg-3 col-md-4 col-6"><img src="../img/veteri_4.webp" alt="Banho e Tosa" class="friend-gallery-img"></div> <div class="col-lg-3 col-md-4 col-6"><img src="../img/hotel1.webp" alt="Hotel Pet" class="friend-gallery-img"></div> <div class="col-lg-3 col-md-4 col-6"><img src="../img/hotel2.webp" alt="Hotel Pet" class="friend-gallery-img"></div> </div>
+        </div>
+
+        <div class="container my-5">
+            <h2 class="text-center main-purple-text fw-bold mb-4">Galeria: Nossos Amigos</h2>
+            <div class="row g-3">
+                <div class="col-lg-3 col-md-4 col-6"><img src="../img/animal1.webp" alt="Cliente pet 1" class="friend-gallery-img"></div>
+                <div class="col-lg-3 col-md-4 col-6"><img src="../img/animal2.webp" alt="Cliente pet 2" class="friend-gallery-img"></div>
+                <div class="col-lg-3 col-md-4 col-6"><img src="../img/animal3.webp" alt="Cliente pet 3" class="friend-gallery-img"></div>
+                <div class="col-lg-3 col-md-4 col-6"><img src="../img/animal4.webp" alt="Cliente pet 4" class="friend-gallery-img"></div>
+                <div class="col-lg-3 col-md-4 col-6"><img src="../img/animal5.webp" alt="Cliente pet 5" class="friend-gallery-img"></div>
+                <div class="col-lg-3 col-md-4 col-6"><img src="../img/animal6.webp" alt="Cliente pet 6" class="friend-gallery-img"></div>
+                <div class="col-lg-3 col-md-4 col-6"><img src="../img/animal7.webp" alt="Cliente pet 7" class="friend-gallery-img"></div>
+                <div class="col-lg-3 col-md-4 col-6"><img src="../img/animal8.webp" alt="Cliente pet 8" class="friend-gallery-img"></div>
+                </div>
+        </div>
+    </main>
+
+    <footer class="main-footer pt-5 pb-4 mt-5">
+        <div class="container">
+            <div class="row footer-links mb-4">
+                <div class="col-lg-3 col-md-6 mb-4"><div class="footer-cta p-4"><h4 class="text-white">Como podemos ajudar?</h4><p class="text-white-50">Conheça mais sobre nós.</p><a href="contatos.html" class="btn btn-light btn-sm fw-bold">Fale Conosco</a></div></div>
+                <div class="col-lg-3 col-md-6 mb-4"><h5>Atendimento</h5><ul class="list-unstyled"><li><a href="contatos.html">Central de Ajuda/FAQ</a></li><li><a href="#">Trocas e Devoluções</a></li></ul></div>
+                <div class="col-lg-3 col-md-6 mb-4"><h5>Nossos Serviços</h5><ul class="list-unstyled"><li><a href="../servicos/veterinaria.html">Veterinária 🐾</a></li><li><a href="../servicos/servicos.html">Estética</a></li><li><a href="../servicos/hotel.html">Hotel Pet</a></li><li><a href="../servicos/day_care.html">Day Care</a></li></ul></div>
+                <div class="col-lg-3 col-md-6 mb-4"><h5>Informações Legais</h5><ul class="list-unstyled"><li><a href="#">Política de Privacidade</a></li><li><a href="lojas.html">Nossas Lojas</a></li></ul></div>
+            </div>
+            <hr class="footer-hr">
+            <div class="text-center mt-3 small text-muted">
+                <p class="mb-0">CHATUAL DU PET | CNPJ: 10.864.846/0001-23</p>
+                <p class="mb-0">© Copyright 2025 CHATUAL DU PET - Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

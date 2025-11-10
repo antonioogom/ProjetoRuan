@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Meu Favorito | CHATUAL DU PET</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/home.css"> 
+    
+    <style>
+        :root {
+            --chateau-purple: #89006A;
+            --chateau-light-purple: #f0e6f0;
+        }
+        .page-title {
+            color: var(--chateau-purple);
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+        .navbar { 
+            background-color: var(--chateau-purple) !important;
+            padding: 10px 0;
+        }
+        .header-back-button {
+            font-size: 24px;
+            text-decoration: none;
+            color: white !important;
+            line-height: 1;
+            margin-left: 10px;
+        }
+        .navbar-brand span {
+             color: white;
+             font-size: 1.5rem;
+             font-weight: bold;
+        }
+        .favorites-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .card-favorite {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card-favorite img {
+            width: 100%;
+            height: 150px;
+            object-fit: contain;
+            border-bottom: 1px solid #ddd;
+            background-color: #f8f8f8;
+            padding: 10px;
+        }
+        .card-favorite-body {
+            padding: 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+        .text-primary.fw-bold {
+            color: var(--chateau-purple) !important;
+            font-size: 1.2rem;
+        }
+        .btn-custom {
+            background-color: var(--chateau-purple);
+            color: #fff;
+            border: 1px solid var(--chateau-purple);
+            transition: 0.3s;
+        }
+        .btn-custom:hover {
+            background-color: #6a0052;
+            color: white;
+        }
+        .remove-btn {
+            background-color: transparent;
+            color: #89006A;
+            border: 1px solid #89006A;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+        .remove-btn:hover {
+            background-color: #89006A;
+            color: white;
+        }
+        #no-favorites-message {
+            text-align: center;
+            padding: 50px;
+            color: #6c757d;
+        }
+        footer { 
+            background-color: var(--chateau-light-purple); 
+            border-top: 1px solid var(--chateau-purple); 
+            text-align: center; 
+            padding: 1rem; 
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg shadow-sm">
+        <div class="container d-flex align-items-center justify-content-between">
+            
+            <a class="header-back-button" href="javascript:history.back()" title="Voltar">
+                ←
+            </a>
+
+            <a class="navbar-brand d-flex align-items-center mx-auto" href="../home.html">
+                <span>MEU FAVORITO</span>
+            </a>
+
+            <div class="d-flex align-items-center me-3">
+                <a class="nav-link text-white me-3" href="../ecommerce/carrinho.html" title="Ir para o Carrinho">
+                    🛒
+                </a>
+                <a class="nav-link text-white" href="login.html" title="Acessar Perfil">
+                    👤
+                </a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container my-5">
+        <h1 class="text-center page-title">💖 Meus Produtos Favoritos</h1>
+        
+        <div id="no-favorites-message" style="display: none;">
+            <p>Você ainda não adicionou nenhum produto aos favoritos. Explore nossas ofertas na <a href="../home.html">página inicial</a>!</p>
+        </div>
+
+        <div class="favorites-grid" id="favorites-list">
+            
+            <div class="card-favorite" data-product-id="racao1">
+                <img src="../img/racao1.webp" alt="Ração Úmida GranPlus">
+                <div class="card-favorite-body">
+                    <h5 class="card-title">Ração Úmida GranPlus (100g)</h5>
+                    <p class="text-primary fw-bold">R$ 3,39</p>
+                    <button class="btn btn-custom w-100 mb-2 btn-comprar" data-product-id="racao1">Comprar</button>
+                    <button class="btn btn-sm remove-btn w-100">Remover dos Favoritos</button>
+                </div>
+            </div>
+            
+            <div class="card-favorite" data-product-id="racao2">
+                <img src="../img/racao2.webp" alt="Ração Seca Premier">
+                <div class="card-favorite-body">
+                    <h5 class="card-title">Ração Seca Premier Pet (2,5kg)</h5>
+                    <p class="text-primary fw-bold">R$ 69,90</p>
+                    <button class="btn btn-custom w-100 mb-2 btn-comprar" data-product-id="racao2">Comprar</button>
+                    <button class="btn btn-sm remove-btn w-100">Remover dos Favoritos</button>
+                </div>
+            </div>
+            
+            <div class="card-favorite" data-product-id="racao3">
+                <img src="../img/racao3.webp" alt="Petisco Natural Osso">
+                <div class="card-favorite-body">
+                    <h5 class="card-title">Petisco Natural Osso Palito</h5>
+                    <p class="text-primary fw-bold">R$ 17,90</p>
+                    <button class="btn btn-custom w-100 mb-2 btn-comprar" data-product-id="racao3">Comprar</button>
+                    <button class="btn btn-sm remove-btn w-100">Remover dos Favoritos</button>
+                </div>
+            </div>
+            
+            <div class="card-favorite" data-product-id="racao4">
+                <img src="../img/racao4.jpg" alt="Shampoo Pet">
+                <div class="card-favorite-body">
+                    <h5 class="card-title">Shampoo Neutro Pet (500ml)</h5>
+                    <p class="text-primary fw-bold">R$ 45,00</p>
+                    <button class="btn btn-custom w-100 mb-2 btn-comprar" data-product-id="racao4">Comprar</button>
+                    <button class="btn btn-sm remove-btn w-100">Remover dos Favoritos</button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 CHATUAL DU PET - Todos os direitos reservados</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // CORRIGIDO: Caminho para a página do carrinho
+        const carrinhoPage = '../ecommerce/carrinho.html';
+        const favoritesList = document.getElementById('favorites-list');
+        const noFavoritesMessage = document.getElementById('no-favorites-message');
+
+        function updateDisplay() {
+            if (favoritesList.children.length === 0) {
+                noFavoritesMessage.style.display = 'block';
+            } else {
+                noFavoritesMessage.style.display = 'none';
+            }
+        }
+        
+        favoritesList.addEventListener('click', function(e) {
+            const button = e.target;
+            
+            if (button.classList.contains('remove-btn')) {
+                const card = button.closest('.card-favorite');
+                if (confirm(`Tem certeza que deseja remover ${card.querySelector('.card-title').textContent} dos favoritos?`)) {
+                    card.remove();
+                    alert("Produto removido dos favoritos!");
+                    updateDisplay();
+                }
+            }
+            
+            if (button.classList.contains('btn-comprar')) {
+                alert(`Produto adicionado ao carrinho!`);
+                window.location.href = carrinhoPage;
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', updateDisplay);
+    </script>
+</body>
+</html>

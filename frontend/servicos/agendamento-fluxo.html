@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento de Serviços - CHATUAL DU PET</title>
+    <link rel="icon" type="image/png" href="../img/logo_pequena.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/agendamento.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg shadow-sm">
+         <div class="container">
+              <a class="btn text-white d-flex align-items-center" href="../home.html"><i class="bi bi-arrow-left me-2"></i>Voltar</a>
+             <span class="navbar-brand fw-bold text-white mx-auto">Agendamento Online</span>
+             <div style="width: 80px;"></div>
+         </div>
+     </nav>
+
+    <main class="container my-5">
+        <h1 class="text-center mb-4 main-purple-text">Agende seu Horário</h1>
+        <div class="progress-container">
+            <div class="progress" role="progressbar" aria-label="Progresso do Agendamento" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar main-purple-bg" style="width: 0%" id="step-progressbar">Passo 1</div>
+            </div>
+        </div>
+
+        <div id="agendamento-wizard" class="card p-4 shadow-sm">
+
+            <div id="step-1" class="step active">
+                <h2>Passo 1: Selecione o Serviço</h2>
+                <div class="mb-3">
+                    <label for="service-select" class="form-label fw-bold">Serviço Desejado:</label>
+                    <select class="form-select form-select-lg" id="service-select" required>
+                        <option value="" disabled selected>Carregando serviços...</option>
+                    </select>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button id="nextButtonStep1" class="btn btn-custom" disabled>Próximo <i class="bi bi-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <div id="step-2" class="step">
+                <h2>Passo 2: Selecione a Loja</h2>
+                <div class="mb-3">
+                    <label for="store-select" class="form-label fw-bold">Unidades que oferecem este serviço:</label>
+                    <select class="form-select form-select-lg" id="store-select" required disabled>
+                        <option value="" disabled selected>Selecione um serviço...</option>
+                    </select>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <button id="backButtonStep2" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Voltar</button>
+                    <button id="nextButtonStep2" class="btn btn-custom" disabled>Próximo <i class="bi bi-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <div id="step-3" class="step">
+                 <h2>Passo 3: Escolha a Data e o Horário</h2>
+                 <p class="text-muted">Ao clicar em um dia, você precisará estar logado.</p>
+                 <div class="row">
+                     <div class="col-md-7 mb-4 mb-md-0">
+                         <div class="d-flex justify-content-between align-items-center mb-3">
+                             <button id="prevMonthButton" class="btn btn-sm btn-outline-secondary"><i class="bi bi-chevron-left"></i> Anterior</button>
+                             <h5 id="calendar-month-year" class="mb-0 text-center">Carregando...</h5>
+                             <button id="nextMonthButton" class="btn btn-sm btn-outline-secondary">Próximo <i class="bi bi-chevron-right"></i></button>
+                         </div>
+                         <div id="calendar-grid">
+                             <div class="text-center p-5"><span class="spinner-border main-purple-text"></span></div>
+                         </div>
+                     </div>
+                     <div class="col-md-5">
+                         <div id="time-slots-container" class="p-3 bg-light rounded h-100" style="min-height: 250px;">
+                             <p class="text-muted text-center mt-5">Selecione uma data para ver os horários.</p>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="d-flex justify-content-between mt-4">
+                     <button id="backButtonStep3" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Voltar</button>
+                     <button id="nextButtonStep3" class="btn btn-custom" disabled>Próximo <i class="bi bi-arrow-right"></i></button>
+                 </div>
+            </div>
+
+            <div id="step-4" class="step">
+                <h2>Passo 4: Informações do Pet</h2>
+                <form id="pet-info-form">
+                    <div class="mb-3">
+                        <label for="select-pet" class="form-label fw-bold">Selecione o Pet:</label>
+                        <select class="form-select form-select-lg" id="select-pet">
+                            <option value="NEW" selected>-- Cadastrar Novo Pet --</option>
+                            <option value="" disabled>Carregando seus pets...</option>
+                        </select>
+                    </div>
+                    <div id="new-pet-fields">
+                         <hr>
+                         <h5 class="mb-3">Dados do Novo Pet</h5>
+                         <div class="mb-3">
+                             <label for="nome_pet" class="form-label">Nome do Pet <span class="text-danger">*</span></label>
+                             <input type="text" class="form-control" id="nome_pet" name="nome_pet">
+                         </div>
+                         <div class="row">
+                             <div class="col-md-6 mb-3">
+                                 <label for="especie_raca" class="form-label">Espécie e Raça <span class="text-danger">*</span></label>
+                                 <input type="text" class="form-control" id="especie_raca" name="especie_raca" placeholder="Ex: Cão, Labrador">
+                             </div>
+                             <div class="col-md-6 mb-3">
+                                 <label for="porte" class="form-label">Porte</label>
+                                 <select class="form-select" id="porte" name="porte">
+                                     <option value="">Não informado</option>
+                                     <option value="Pequeno">Pequeno</option>
+                                     <option value="Médio">Médio</option>
+                                     <option value="Grande">Grande</option>
+                                 </select>
+                             </div>
+                         </div>
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="observacoes" class="form-label">Observações Especiais (Alergias, Comportamento, etc.)</label>
+                        <textarea class="form-control" id="observacoes" name="observacoes" rows="3"></textarea>
+                    </div>
+                    <div class="d-flex justify-content-between mt-4">
+                        <button id="backButtonStep4" type="button" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Voltar</button>
+                        <button type="submit" class="btn btn-custom">Ir para Confirmação <i class="bi bi-arrow-right"></i></button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="step-5" class="step">
+                 <h2>Passo 5: Confirme seu Agendamento</h2>
+                 <div class="alert alert-secondary" role="alert">
+                     Por favor, revise os detalhes abaixo antes de confirmar.
+                 </div>
+                 <div id="confirmation-summary" class="mb-4">
+                     <p class="text-center"><span class="spinner-border spinner-border-sm"></span> Carregando resumo...</p>
+                 </div>
+                 <div class="d-flex justify-content-between mt-4">
+                     <button id="backButtonStep5" type="button" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Voltar</button>
+                     <button id="confirmButton" type="button" class="btn btn-success btn-lg"><i class="bi bi-check-circle-fill me-2"></i>Confirmar Agendamento</button>
+                 </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer pt-5 pb-4 mt-5">
+        <div class="container text-center">
+            <p>© 2025 CHATUAL DU PET - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="../js/supabaseClient.js" type="module"></script>
+    <script src="../js/agendamento.js" type="module"></script>
+</body>
+</html>
