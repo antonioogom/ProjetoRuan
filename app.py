@@ -1,7 +1,7 @@
 # backend/app.py — Versão Final Unificada (Agendamento + E-commerce + CORS Ajustado)
 
 import os
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from flask_cors import CORS
 from dotenv import load_dotenv
 from supabase import create_client, Client
@@ -44,6 +44,10 @@ origins = [
 ]
 
 CORS(app, origins=origins, methods=["GET", "POST", "OPTIONS"])
+
+@app.route('/')
+def home():
+    return render_template('home.html')
 
 # --- 5. ROTA DE TESTE (Health Check) ---
 @app.route('/api/', methods=['GET'])
