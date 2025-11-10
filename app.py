@@ -1,7 +1,7 @@
 # backend/app.py — Versão Final Unificada (Agendamento + E-commerce + CORS Ajustado)
 
 import os
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, request, render_template, redirect, url_for
 from flask_cors import CORS
 from dotenv import load_dotenv
 from supabase import create_client, Client
@@ -45,9 +45,21 @@ origins = [
 
 CORS(app, origins=origins, methods=["GET", "POST", "OPTIONS"])
 
+@app.route('/img/<path:filename>')
+def imagens(filename):
+    return redirect(url_for('static', filename=f'img/{filename}'))
+
+@app.route('/videos/<path:filename>')
+def videos(filename):
+    return redirect(url_for('static', filename=f'videos/{filename}'))
+
 @app.route('/home')
 def home():
     return render_template('home.html')
+
+@app.route('/produto')
+def produto():
+    return render_template('produto.html')
 
 # --- 5. ROTA DE TESTE (Health Check) ---
 @app.route('/api/', methods=['GET'])
