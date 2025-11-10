@@ -45,7 +45,7 @@ origins = [
 
 CORS(app, origins=origins, methods=["GET", "POST", "OPTIONS"])
 
-@app.route('/')
+@app.route('/home')
 def home():
     return render_template('home.html')
 
