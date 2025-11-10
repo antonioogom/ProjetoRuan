@@ -1,6 +1,0 @@
-Flask>=2.0
-Flask-Cors>=3.0
-python-dotenv>=0.19 # Para carregar variáveis de ambiente (como chaves Supabase)
-supabase>=1.0      # Biblioteca oficial do Supabase para Python
-psycopg2-binary>=2.9 # Driver PostgreSQL (Supabase usa Postgres)
-# Adicione outras bibliotecas se precisar depois (ex: pandas, numpy)
